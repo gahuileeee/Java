@@ -1,0 +1,25 @@
+package sub01;
+/*
+ *	날짜: 2023-12-27
+ *	이름: 이가희
+ * 	내용: Ch03. sub01. Java 조건문 if 실습
+ */
+public class IfTest {
+	public static void main(String[] args) {
+		
+//		if
+		int num1 = 1;
+		int num2 = 2;
+		
+		if(/*조건식*/ num1 < num2) {
+			System.out.println("num1은 num2보다 작다");
+		}
+		 System.out.println();
+//		if~else
+		
+		
+//		if~else if~else
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+package sub02;
+/*
+ * 	날짜: 2023-12-27
+ * 	이름: 이가희
+ * 	내용: Ch03. sub02. Java Switch문 실습
+ */
+public class SwitchTest {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

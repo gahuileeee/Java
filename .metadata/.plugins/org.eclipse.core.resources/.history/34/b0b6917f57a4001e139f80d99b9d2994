@@ -1,0 +1,13 @@
+package sub03;
+/*
+ * 	날짜: 2023-12-27
+ * 	이름: 이가희
+ * 	내용: Ch03.sub03. For 문 실습
+ */
+public class ForTest {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

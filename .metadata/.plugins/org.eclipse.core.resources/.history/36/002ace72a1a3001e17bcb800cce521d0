@@ -1,0 +1,14 @@
+package sub2;
+
+public class DataTypeTest {
+/*
+ *	날짜: 2023/12/26 
+ *	이름: 이가희 
+ * 	내용: Ch02.Java 자료형
+ * 
+ */
+	public static void main(String[] args) {
+		
+	}
+
+}

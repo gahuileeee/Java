@@ -1,0 +1,20 @@
+package sub3;
+
+public class OperatorTest {
+	/*
+	 *  날짜: 2023/12/26
+	 * 	이름: 이가희	
+	 *  내용:  Ch02. Java 연산자 
+	 */
+
+	public static void main(String[] args) {
+		
+//		산술연산자
+		
+//		증감연산자
+//		복합대입연산자
+//		비교연산자
+//		논리연산자
+	}
+
+}

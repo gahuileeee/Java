@@ -1,0 +1,30 @@
+package sub1;
+/*
+ *  날짜: 2023-12-26
+ * 	이름: 이가희
+ * 	내용: Ch02.Java 변수와 연산자
+ */
+public class VariableTest {
+
+	public static void main(String[] args) {
+				// 변수
+		int a = 3;
+		//a는 변수이고 3은 data. 변수 a의 자료형은 int type.
+		int b= 7;
+		String c= "홍길동";
+		
+		System.out.println("a : "+ a);
+		System.out.println("b : "+ b);
+		System.out.println("c : "+ c);
+		
+		a = 5;
+		//변수 a에 5가 덮어씌워짐.
+		
+		System.out.println("a : "+ a);
+		
+				//상수
+		int num = 5;
+		
+	}
+
+}

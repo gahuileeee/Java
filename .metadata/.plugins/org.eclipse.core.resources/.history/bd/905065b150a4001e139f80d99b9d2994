@@ -1,0 +1,12 @@
+package sub01;
+/*
+ *	날짜: 2023-12-27
+ *	이름: 이가희
+ * 	내용: Ch03. sub01. Java 조건문 if 실습
+ */
+public class IfTest {
+	public static void main(String[] args) {
+		
+	}
+
+}
