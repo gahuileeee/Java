@@ -9,40 +9,28 @@ import java.util.Deque;
 import java.util.StringTokenizer;
 
 public class Main {
-	public static int a;
-	public static Deque<Integer> q= new ArrayDeque<>();
-	
+	public static int N;
+	public static int M; 
+	public static int [] arr;
+	public static int [][] brr;
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st= new StringTokenizer (br.readLine());
-		BigInteger a= new BigInteger(st.nextToken());
-		BigInteger b= new BigInteger(st.nextToken());
-		BigInteger c= new BigInteger(st.nextToken());
-		BigInteger k= new BigInteger("2");
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		arr = new int [N+1];
+		for(int i=1; i<arr.length; i++) {
+			arr[i]=i;
+		}
+		brr = new int [N][M];
 		
-		if(b.remainder(k)==new BigInteger("0")) {
-			b=b.divide(k);
-			String bb=String.valueOf(b);
-			int ff=Integer.parseInt(bb);
-			BigInteger aa= new BigInteger("1");
-			for(int i=0; i<ff; i++) {
-				aa=aa.multiply(a);
+		}
+	public static void backTraking() {
+		int start =1;
+		for(int i=1; i<=N; i++) {
+			for(int k=1; k<=M; k++) {
+				brr[i][k]= start;
 			}
-			aa=aa.multiply(aa);
-			System.out.println(aa);
-			System.out.println(aa.remainder(c));
-		}else {
-			b=b.divide(k);
-			String bb=String.valueOf(b);
-			int ff=Integer.parseInt(bb);
-			BigInteger aa= new BigInteger("1");
-			for(int i=0; i<ff; i++) {
-				aa=aa.multiply(a);
-			}
-			aa=aa.multiply(aa);
-			aa=aa.multiply(a);
-			
-			System.out.println(aa.remainder(c));
 		}
 	}
 }
