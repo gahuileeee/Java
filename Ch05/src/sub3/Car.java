@@ -1,4 +1,5 @@
-package sub02;
+package sub3;
+
 /* 
  * 날짜 : 2024-01-02
  * 이름 : 이가희
@@ -9,8 +10,17 @@ public class Car {
 	private String name;
 	private String color;
 	private int speed;
-	
 
+//	클래스 변수(정적변수)
+	public static int count;
+	
+//	class method(정적 method)
+	public static int getCount() {
+		return count;
+	}
+	public static void setCount(int count) {
+		Car.count = count;
+	}
 	
 	// 기능 (메서드)
 	public void speedUp(int speed) {
@@ -56,6 +66,8 @@ public class Car {
 		this.name=name;
 		this.color=color;
 		this.speed=speed;
+		// 생성될 떄 마다 count ++
+		count++;
 	}
 	
 	public Car() {
