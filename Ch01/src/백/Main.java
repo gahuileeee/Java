@@ -15,6 +15,8 @@ public class Main {
 	public static int T;
 	public static int map [][] ;
 	public static int minus;
+	public static int[] x = {0,0,1,-1};
+	public static int[] y = {1,-1,0,0};
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -33,14 +35,63 @@ public class Main {
 					map[i][k]=c;
 					minus=i;
 				}
-				
 			}
 		}
+//		methodA(T);
+//		diffusion();
+		System.out.println(count());
+		
 	}
 	public static void methodA(int time) {
 		int tt=0;
 		while(tt<time) {
+//			확산부터 시켜보자
+			diffusion();
 			tt++;
 		}
+	}
+	public static void diffusion() {
+		for(int i=0; i<R; i++) {
+			for(int k=0; k<C; k++) {
+				if(map[i][k]!=0&&map[i][k]!=-1) {
+					int count =0;
+					int amount = map[i][k];
+					for(int p=0; p<4; p++) {
+						int nx= i+x[p];
+						int ny= k + y[p];
+						if(nx>=0&&nx<R&&ny>=0&&ny<C) {
+						
+							if(map[nx][ny]!=-1) {
+								map[nx][ny]+=amount/5;	
+								count++;
+							}
+							
+						}
+					}
+					map[i][k]=amount -(amount/5)*count;
+				}
+			
+			}
+		}
+	}
+	public static void move() {
+//		공기청정기는 (minus-1,0 ) (minus,0)에 있음.
+//		옆으로 움직여 보자
+		int k=map[minus-1][1];
+		map[minus-1][1]=0;
+		int c=0;
+		for(int i=2; i<R; i++) {
+			c=map[minus-1][i];
+			
+		}
+	}
+	public static int count() {
+		int sum=0;
+		for(int i=0 ;i<R ; i++) {
+			for(int k=0; k<C; k++) {
+				if(map[i][k]!=-1) sum+=map[i][k];
+			}
+		}
+		return sum;
 	}
 }
