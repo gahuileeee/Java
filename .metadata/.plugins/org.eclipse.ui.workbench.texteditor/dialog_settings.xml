@@ -10,9 +10,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value="Samsung"/>
 		<list key="findhistory">
+			<item value="Lg"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Samsung"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
