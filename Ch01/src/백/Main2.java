@@ -7,22 +7,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Main2 {
-	static Set<String> set = new HashSet<>();
-	static StringBuffer sb = new StringBuffer();
-	static String a;
-	static int k;
 	public static void main(String[] args)throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		a= br.readLine();
-		k=a.length();
-	}
-	public static void methodA() {
-		int p=1;
-		while(p<=k) {
-			for(int i=p ;i<a.length(); i++) {
-				
+		int a = Integer.parseInt(br.readLine());
+		a=a/4;
+		String b = "long ";
+		for(int i=1; i<=a; i++) {
+			
+			if(i==a) {
+				b+="int";
+			}else {
+				b+="long ";
 			}
-			p++;
 		}
+		System.out.println(b);
 	}
 }
