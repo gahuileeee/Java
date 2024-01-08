@@ -1,35 +1,32 @@
 package 백;
 /*
- * 최소 비용 구하기 1916
+ * 나무 자르기 2805
  */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Deque;
 import java.util.StringTokenizer;
 
 public class Main2 {
-	static int city;
-	static int bus;
-	static int map [][];
-	static int start;
-	static int end;
+	static int tree;
+	static int M;
+	static int [] arr;
+	static StringBuffer sb = new StringBuffer();
 	public static void main(String[] args)throws IOException {
 	
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		city = Integer.parseInt(br.readLine());
-		bus = Integer.parseInt(br.readLine());
-		map = new int [city+1][city+1];
-		for(int i=0; i<bus; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			int a =Integer.parseInt(st.nextToken());
-			int b =Integer.parseInt(st.nextToken());
-			int c =Integer.parseInt(st.nextToken());
-			map[a][b]=c;
-		} //일단 입력 다 받음.
-		start = Integer.parseInt(br.readLine());
-		end = Integer.parseInt(br.readLine());
-	}
-	public static void route() {
-		
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		tree = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		arr =new int [tree];
+		st = new StringTokenizer(br.readLine());
+		for(int i=0; i<tree; i++) {
+			arr[i]=Integer.parseInt(st.nextToken());
+		}
 	}
 }
