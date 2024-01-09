@@ -10,66 +10,81 @@ import java.util.Deque;
 import java.util.StringTokenizer;
 
 public class Main {
-	static int subin;
-	static int dong;
-	static int time;
-	static Deque<Integer> q = new ArrayDeque<>();
-	static Deque<Integer> p = new ArrayDeque<>();
-	public static void main(String[] args) throws IOException {
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		subin = Integer.parseInt(st.nextToken());
-		dong = Integer.parseInt(st.nextToken());
-		int a = Math.max(dong, subin);
-		int b= Math.min(dong, subin);
-		if(a==b) {
-			System.out.println("0");
-		}
-		
-		if(a!=0&&b!=0) {
-			if(a%b==0&&a!=1&&b!=1) {
-				System.out.println("0");
-			}else {
-				System.out.println(search());
-			}
-		}else {
-			
-		}
-		
-	}
+	public static int [][] box;
+	public static int [] arr;
+	public static int[] x= {-1,1,0,0};
+	public static int[] y= {0,0,1,-1};
+	public static boolean [][] v;
+	public static Deque<xy> q;
+	public static int count;
+	public static int subcount;
 	
-	public static int search() {
+	public static void main(String[] args)throws IOException  {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st= new StringTokenizer(br.readLine());
+		int a=Integer.parseInt(st.nextToken());
+		int b= Integer.parseInt(st.nextToken());
+		box = new int [b][a];
+		q= new ArrayDeque<>();
+		v= new boolean [b][a];
 		
-		q.add(subin-1);
-		q.add(subin+1);
-		q.add(subin*2);
-		while(!q.isEmpty()||!p.isEmpty()) {
-			
-			time++;
-			while(!q.isEmpty()) {
-				int a=q.pollFirst();
-				if(a%dong==0||dong%a==0) {
-					return time;
+		for(int i=0; i<b; i++) {
+			st= new StringTokenizer(br.readLine());
+			for(int j=0; j<a; j++) {
+				int kk=Integer.parseInt(st.nextToken());
+				box[i][j]=kk;
+				if(kk==1) {
+					q.add(new xy(i, j));
+					v[i][j]=true;
 				}
-				p.add(a+1);
-				p.add(a-1);
-				p.add(a*2);
-			}
-			
-			time++;
-		
-			System.out.println();
-			while(!p.isEmpty()) {
-				int a= p.pollFirst();
-				if(a%dong==0||dong%a==0) {
-					return time;
-				}
-				q.add(a+1);
-				q.add(a-1);
-				q.add(a*2);
 			}
 		}
-		return time;
+		count =0;
+		subcount=q.size();
+		if(subcount ==0) {
+			System.out.println("-1");
+			System.exit(0);
+		}
+		bfs(b, a);
+		for(int i=0; i<b; i++) {
+			for( int k=0; k<a; k++) {
+				if(box[i][k]==0) {
+					System.out.println("-1");
+					System.exit(0);
+				}
+			}
+		}
+		
+		System.out.println(count-1);
+	} //main method 종료
+	public static void bfs(int b, int a) {
+		
+		while(!q.isEmpty()) {
+			xy p =q.poll();
+			subcount--;
+			for(int i=0; i<4; i++) {
+				int nx= p.x + x[i];
+				int ny= p.y + y[i];
+				if(nx>=0 && nx<b && ny>=0 && ny<a) {
+					if(v[nx][ny]==false && box[nx][ny]==0) {
+						v[nx][ny]=true;
+						box[nx][ny]=1;
+						q.add(new xy(nx, ny));
+					}
+				}
+			}
+			if(subcount==0) {
+				count++;
+				subcount = q.size();
+			}
+		}
+	}
+	public static class xy{
+		int x;
+		int y;
+		public xy(int x, int y) {
+			this.x= x;
+			this.y=y;
+		}
 	}
 }
