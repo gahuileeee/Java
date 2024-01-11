@@ -16,15 +16,13 @@ public class Main2 {
 //	static ArrayList<Character> list = new ArrayList<>();
 	static Map<Character, Integer> map = new HashMap<>();
 	static int count;
+	static boolean all;
 	public static void main(String[] args)throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine());
-		if(N==1) {
-			System.out.println(1);
-			System.exit(0);
-		}
 		A = br.readLine();
 		count=0;
+		all=true;
 		two();
 		System.out.println(count);
 	}
@@ -36,10 +34,10 @@ public class Main2 {
 		String B="";
 		B+=A.charAt(0)+""+A.charAt(1);
 		end++;
-		while(end<=A.length()) {
+		while(end<A.length()) {
 			map.put(A.charAt(end), 0);
 			if(map.size()<=N) {
-				B+=A.charAt(end+1)+"";
+				B+=A.charAt(end)+"";
 				end++;
 			}else {
 				if(B.length()>count) {
@@ -48,15 +46,23 @@ public class Main2 {
 				char c= B.charAt(0);
 				map.remove(c);
 				while(true) {
-					if(B.charAt(0)==c) {
-						B=B.substring(1, B.length()-1);
-					}else {
-						break;
+					int m=0;
+					for(int i=0; i<B.length();i++) {
+						if(B.charAt(i)==c) {
+							m=i;
+						}
 					}
+					B+=A.charAt(end)+"";
+					B=B.substring(m+1,B.length());
+					break;
 				}
+				all=false;
 				end++;
 			}
 			
+		}
+		if(all) {
+			count=B.length();
 		}
 		
 	}
