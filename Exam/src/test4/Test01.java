@@ -26,10 +26,10 @@ public class Test01 {
 				}
 		}catch(InputMismatchException e) {
 			System.out.println("숫자가 아닙니다. 숫자를 입력하세요.");
-			e.getStackTrace();
+			continue;
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
-			e.getStackTrace();
+			continue;
 		}
 		if(answer>input){
 			System.out.println("더 큰 수를 입력하세요.");
