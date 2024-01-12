@@ -23,6 +23,10 @@ public class Main2 {
 		A = br.readLine();
 		count=0;
 		all=true;
+		if(A.length()==1) {
+			System.out.println(1);
+			System.exit(0);
+		}
 		two();
 		System.out.println(count);
 	}
