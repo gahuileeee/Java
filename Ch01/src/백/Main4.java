@@ -1,10 +1,12 @@
 package 백;
 
 import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
 
 class Node2 {
 	int idx;
@@ -28,59 +30,28 @@ public class Main4{
 	static int end;
 	static ArrayList<ArrayList<Node2>> graph;
 	public static void main(String[] args) throws IOException {
+		int [] arr = solution("banana");
+		for(int a : arr) {
+			System.out.print(a+" ");
+		}
 		st = new StringTokenizer(br.readLine());
-		V = Integer.parseInt(st.nextToken());
-		E = Integer.parseInt(st.nextToken());
-		start= Integer.parseInt(br.readLine());
-		graph = new ArrayList<>();
-		for(int i=0; i<V+1; i++) {
-			graph.add(new ArrayList<Node2>());
-		}
-		for(int i=0; i<E; i++) {
-			st = new StringTokenizer(br.readLine());
-			// a에서 b로 가는 가격 cost
-			int a= Integer.parseInt(st.nextToken());
-			int b= Integer.parseInt(st.nextToken());
-			int cost= Integer.parseInt(st.nextToken());
-			graph.get(a).add(new Node2(b, cost));
-		}
-		visit = new boolean [V+1];
-		dist = new int [V+1];
-		for(int i=0; i<V+1; i++) {
-			dist[i]= Integer.MAX_VALUE;
-		}
-		
-		dist[start]=0;
-		
-		dijkstra();
-		for (int i = 1; i < V + 1; i++) {
-			if (dist[i] == Integer.MAX_VALUE) {
-				System.out.println("INF");
-			} else {
-				System.out.println(dist[i]);
-			}
-		}
+
 	}
-	
-	public static void dijkstra() {
-		for(int i=0; i<V; i++) {
-			int nodeValue = Integer.MAX_VALUE;
-			int nodeIdx = 0;
-			for(int j=1; j<V+1; j++) {
-				if(!visit[j]&&dist[j]<nodeValue) {
-					nodeValue = dist[j];
-					nodeIdx=j;
-				}
-			}
-			visit[nodeIdx]= true;
-			for(int j=0; j<graph.get(nodeIdx).size(); j++) {
-				Node2 adjNode = graph.get(nodeIdx).get(j);
-				
-				if(dist[adjNode.idx]>dist[nodeIdx]+adjNode.cost) {
-					dist[adjNode.idx]=dist[nodeIdx] + adjNode.cost;
-				}
+	public static int[] solution(String s) {
+		int [] answer = new int [s.length()];
+		TreeMap<Character, Integer> map = new TreeMap<>();
+		for(int i=0; i<answer.length; i++) {
+			char a =s.charAt(i);
+			if(map.containsKey(a)) {
+				int n=map.get(a);
+				answer[i]=i-n;
+				map.put(a, i);
+			}else {
+				map.put(a,i);
+				answer[i]=-1;
 			}
 		}
+		return answer;
 	}
 }
 	
